@@ -36,6 +36,10 @@ const routes = [
         component: () => import('../views/admin/AdminProducts.vue')
       }
     ]
+  },
+  {
+    path: '/:pathMatch(.*)*',
+    component: () => import('../views/NotFound.vue')
   }
 ]
 
