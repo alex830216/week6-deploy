@@ -20,6 +20,10 @@ import './assets/all.scss'
 Object.keys(AllRules).forEach((rule) => {
   defineRule(rule, AllRules[rule])
 })
+defineRule('phone', (value) => {
+  const pattern = /^09\d{8}$/ // 以 09 開頭，後面接 8 位數字
+  return pattern.test(value) || '請輸入有效的手機號碼，需為 09 開頭，且長度為十碼'
+})
 configure({
   // 載入繁體中文語系
   generateMessage: localize({ zh_TW: zhTW }),

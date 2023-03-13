@@ -100,7 +100,8 @@
           class="form-control"
           :class="{ 'is-invalid': errors['電話'] }"
           placeholder="請輸入電話"
-          rules="required|min:8|max:10"
+          rules="required|phone"
+
           v-model="form.user.tel"
         ></v-field>
         <error-message name="電話" class="invalid-feedback"></error-message>
