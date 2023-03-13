@@ -101,7 +101,6 @@
           :class="{ 'is-invalid': errors['電話'] }"
           placeholder="請輸入電話"
           rules="required|phone"
-
           v-model="form.user.tel"
         ></v-field>
         <error-message name="電話" class="invalid-feedback"></error-message>
@@ -126,8 +125,14 @@
         <label for="message" class="form-label">留言</label>
         <textarea id="message" class="form-control" cols="30" rows="10" v-model="form.message"></textarea>
       </div>
+      {{  }}
       <div class="text-end">
-        <button type="submit" class="btn btn-danger">送出訂單</button>
+        <button
+          type="submit"
+          class="btn btn-danger"
+          :disabled="cart.carts.length === 0">
+          送出訂單
+        </button>
       </div>
     </v-form>
   </div>
@@ -141,7 +146,9 @@ export default {
     return {
       products: [],
       productId: '',
-      cart: {},
+      cart: {
+        carts: []
+      },
       loadingItem: '', // 存 id
       form: {
         user: {
